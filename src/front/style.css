@@ -1,0 +1,25 @@
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialising;
+}
+
+.card-head {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.card-head p {
+    margin-bottom: 0;
+}
+
+.item {
+    display: flex;
+    justify-content: flex-start;
+}

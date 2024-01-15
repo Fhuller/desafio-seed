@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\multisearch_backend.props" />
+</Project>

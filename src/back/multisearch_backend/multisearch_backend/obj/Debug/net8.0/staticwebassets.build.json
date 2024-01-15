@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "XN7hdwfDrMk9qB7Y3l8Ud+m8LDUaUwoGV01XBRLZPIc=",
+  "Source": "multisearch_backend",
+  "BasePath": "_content/multisearch_backend",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

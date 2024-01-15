@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html ng-app="multiSearch" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MultiSearch</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body ng-controller="myCtrl" class="bg-light">
+    <main>
+        <div class="container my-3 border rounded bg-white">
+            <img src="../../layout/logo_multisearch.png" class="rounded mx-auto d-block" alt="MultiSearch">
+            <div class="mb-3 p-2 mx-auto" style="width: 50%;">
+                <form>
+                    <div class="mb-3">
+                        <input type="text" ng-model="searchText" ng-change="search()" class="form-control" id="inputSearch">
+                        <div id="emailHelp" class="form-text">Foram encontrados {{response.salesOrders.length + response.purchaseOrders.length + response.materials.length + response.equipments.length + response.workforce.length}} resultados:</div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="mb-3 p-2 mx-auto " style="width: 50%;">
+                <div class="border rounded mb-3 overflow-auto">
+                    <div class="card-head border-bottom">
+                        <p>Pedidos de Venda</p>
+                        <p>({{response.salesOrders.length}} items encontrados)</p>
+                    </div>
+                    <div class="items p-3">
+                        <div class="row m-1 mb-3" ng-repeat="venda in response.salesOrders">
+                            <div class="col text-danger"><u><div ng-bind="'#' + venda.salesOrderID"></div></u></div>
+                            <div class="col" ng-bind="venda.materialName"></div>
+                            <div class="col" ng-bind="'Qtd: ' + venda.quantity + ' pç'"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3 p-2 mx-auto " style="width: 50%;">
+                <div class="border rounded mb-3 overflow-auto">
+                    <div class="card-head border-bottom">
+                        <p>Pedidos de Compra</p>
+                        <p>({{response.purchaseOrders.length}} items encontrados)</p>
+                    </div>
+                    <div class="items p-3">
+                        <div class="row m-1 mb-3" ng-repeat="compra in response.purchaseOrders">
+                            <div class="col text-danger"><u><div ng-bind="'#' + compra.purchaseOrderID"></div></u></div>
+                            <div class="col" ng-bind="compra.materialName"></div>
+                            <div class="col" ng-bind="'Qtd: ' + compra.quantity + ' pç'"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3 p-2 mx-auto " style="width: 50%;">
+                <div class="border rounded mb-3 overflow-auto">
+                    <div class="card-head border-bottom">
+                        <p>Produtos</p>
+                        <p>({{response.materials.length}} items encontrados)</p>
+                    </div>
+                    <div class="items p-3">
+                        <div class="row m-1 mb-3" ng-repeat="produto in response.materials">
+                            <div class="col text-danger"><u><div ng-bind="'#' + produto.materialID"></div></u></div>
+                            <div class="col" ng-bind="produto.materialName"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3 p-2 mx-auto " style="width: 50%;">
+                <div class="border rounded mb-3 overflow-auto">
+                    <div class="card-head border-bottom">
+                        <p>Equipamentos</p>
+                        <p>({{response.equipments.length}} items encontrados)</p>
+                    </div>
+                    <div class="items p-3">
+                        <div class="row m-1 mb-3" ng-repeat="equipamento in response.equipments">
+                            <div class="col text-danger"><u><div ng-bind="'#' + equipamento.equipmentID"></div></u></div>
+                            <div class="col" ng-bind="equipamento.equipmentName"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3 p-2 mx-auto " style="width: 50%;">
+                <div class="border rounded mb-3 overflow-auto">
+                    <div class="card-head border-bottom">
+                        <p>Mão de obra</p>
+                        <p>({{response.workforce.length}} items encontrados)</p>
+                    </div>
+                    <div class="items p-3">
+                        <div class="row m-1 mb-3" ng-repeat="workforce in response.workforce">
+                            <div class="col text-danger"><u><div ng-bind="'#' + workforce.workforceID"></div></u></div>
+                            <div class="col" ng-bind="workforce.name"></div>
+                            <div class="col" ng-bind="workforce.shift"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
